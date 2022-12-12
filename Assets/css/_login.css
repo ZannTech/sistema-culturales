@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+:root {
+  --space-root: 1rem;
+  --space-xs: calc(var(--space-root) / 2);
+  --space-s: calc(var(--space-root) / 1.5);
+  --space-m: var(--space-root);
+  --space-l: calc(var(--space-root) * 1.5);
+  --space-xl: calc(var(--space-root) * 2);
+  --color-primary: #3949ab;
+  --color-secondary: black;
+  --color-tertiary: hotpink;
+  --base-border-radius: 0.25rem;
+  --ease: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --duration: 350ms;
+  --font-family: 'Roboto', sans-serif;
+  --font-size: 1.25rem;
+  --dark: #1a1a1a;
+  --white: #ffffff;
+  --light-grey: #efefee;
+  --gold: #ecd5a7;
+  --for-form-text: #d3d3d3;
+}
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--dark);
+  display:grid;
+  place-items: center;
+  align-content: center;
+  margin: 0;
+  height: 100vh;
+  padding: var(--space-m);
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  line-height: 1.2;
+  background-color: var(--color-secondary);
+}
+a {
+  color: var(--color-primary);
+}
+a:focus {
+  color: var(--color-secondary);
+}
+h2 {
+  font-weight: 700;
+  font-size: calc(var(--font-size) * 1.5);
+}
+.form {
+  margin: 0;
+  top: 50px;
+  left: 35%;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  transform: skewY(-5deg) translateY(10%) scale(0.94);
+  transition: box-shadow var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+.form:before, .form:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  background-color: #ebebeb;
+  width: 25%;
+  height: 100%;
+  transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+.form:before {
+  top: 0;
+  right: calc(100% - 1px);
+  transform-origin: 100% 100%;
+  transform: skewY(-35deg) scaleX(-1);
+  z-index: -1;
+}
+.form:after {
+  top: 0;
+  left: calc(100% - 1px);
+  transform-origin: 0 0;
+  transform: skewY(-35deg) scaleX(-1);
+  z-index: 2;
+}
+.form:hover, .form:focus-within {
+  transform: scale(1.0001);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+}
+.form:hover:before, .form:focus-within:before, .form:hover:after, .form:focus-within:after {
+  background-color: white;
+  transform: skewY(0);
+}
+.form-inner {
+  padding: var(--space-xl);
+  background-color: white;
+  z-index: 1;
+}
+.form-inner > * + * {
+  margin-top: var(--space-xl);
+}
+.input-wrapper:focus-within label {
+  color: var(--color-secondary);
+}
+.input-wrapper:focus-within .icon {
+  background-color: var(--color-secondary);
+}
+.input-wrapper:focus-within input {
+  border-color: var(--color-secondary);
+}
+.input-wrapper + .input-wrapper {
+  margin-top: var(--space-l);
+}
+.input-group {
+  position: relative;
+}
+.input-group input {
+  border-radius: var(--base-border-radius);
+  padding-left: calc(var(--space-s) + 60px);
+}
+.input-group .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-top-left-radius: var(--base-border-radius);
+  border-bottom-left-radius: var(--base-border-radius);
+  pointer-events: none;
+}
+label {
+  font-size: calc(var(--font-size) / 1.65);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.065rem;
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--color-primary);
+}
+.icon {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  padding: var(--space-m);
+  background-color: var(--color-primary);
+}
+.icon svg {
+  width: 1.25em;
+  height: 1.25em;
+  fill: white;
+  pointer-events: none;
+  user-select: none;
+  transition: transform var(--duration) var(--ease);
+}
+input, select {
+  flex: 1 1 0;
+  width: 100%;
+  outline: none;
+  padding: var(--space-m);
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  color: var(--color-secondary);
+  border: 2px solid var(--color-primary);
+}
+input:focus {
+  color: var(--color-primary);
+}
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn-group > * + * {
+  margin-left: var(--space-s);
+}
+.btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: none;
+  padding: var(--space-m) var(--space-l);
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: var(--base-border-radius);
+}
+.btn--primary {
+  font-size: calc(var(--font-size) / 1.65);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.065rem;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+.btn--primary:focus {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+.btn--text {
+  font-size: calc(var(--font-size) / 1.5);
+  padding: 0;
+}
+
+#loader{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  background: #000000a3;
+  z-index: 20;
+}
+.spinner {
+  margin: 40vh auto;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: #eee;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+    }  20% { 
+      transform: scaleY(1.0);
+      -webkit-transform: scaleY(1.0);
+    }
+  }
+
+  /*-----------------LOADER CON IMAGEN GIF--------------------------*/
+  #loaderGif{
+    background: url('loader2.gif') 50% 50% no-repeat #000000a3;
+    background-size: 75px;
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    z-index: 20;
+    
+  }
